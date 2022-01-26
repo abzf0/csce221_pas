@@ -1,7 +1,7 @@
-Vectors - Comprehensive Test Suite
-==================================
+Vectors - Assignment Sorting Vectors
+====================================
 
-> This test suite was written by Alex who supports sharing it with the students for download. Accordingly, the documentation is written both for other TAs as well as curious students. Students often contributed suggestions and changes last year - sometimes directly PRing the main repo. I think the transparency and feedback precipitated by our move to a more open model benefits everyone.  
+> TODO: This needs to be updated
 
 This is the test suite for the first assignment - Vectors. The test suite contains 34 tests and is meant to be comprehensive and to test the full distribution of behavior. It tests for both correctness and efficiency. In particular, it ensures that students don't preform unnecessary memory allocations and properly employ move semantics. This can be critical in applications with performance constrains.
 
@@ -10,13 +10,7 @@ the correct state.
 
 The methods frequently utilized include:
 ```
-Vector();
-Vector(size_t count);
-~Vector();
-size_t size() const noexcept;
-size_t capacity() const noexcept;
-T& operator[](size_t pos);
-const T& operator[](size_t pos);
+
 ```
 
 These methods should be fairly easy to implement. Tests to not require the (more) complex logic such as the vector reallocation, move semantics, and iterators unless the tests are explicitly testing that component.
@@ -46,13 +40,30 @@ Building the Test Suite Locally
 
 Running the assignment locally is optional. It allows you to compile binaries with debugging and potentially test more efficiently.
 
+### Students
+
 1. Download the project from `git`
-2. Run `make setup-build`
-    - OR: make a `submission` directory under `tests` in the project root. Copy all source files into `submission`
-    - OR TAs: run `make setup-build USE_SUBMISSION=SAMPLE_SUBMISSION` to use the sample submission
-3. Run `make -k run-all`
-4. Run `make clean` to clean up
-    - OR TAs: Run `make clean-all` to remove the sample solution (make sure you have committed anything before running this command)
+2. Run `make -k run-all`
+3. Run `make clean` to clean up
+
+### TAs
+
+
+The TAs can setup the project using:
+```
+make -f ta-makefile CXX=clang++
+```
+
+This downloads the solution from the sample-solution repo (default target). This is a live repo and you can commit directly back to the `sample-solution` repo. The `sample-solution` command (from above) will also create a file `ta_config` with make setting for TAs. For instance, can use `CXX` to set the compiler in a persistent way without editing the `makefile`. If you have a usecase, add more persistent settings!
+
+Then, use run `make run/${TEST}` to run the test for the file `${TEST}.cpp`. 
+
+Once finished, you can clean up with:
+```
+make -f ta-makefile clean
+```
+
+This will remove the `ta_config` and `sample-solution` repo.
 
 ### Tips:
 - If you have a multi-core computer (which you probably do unless you're living in the early 2000s), you can run tests in parallel using `make -k run-all -j32`. Here I used `32` because I have `16` cores. If you have hyperthreading, you generally want to use `2 * (cores)`. 

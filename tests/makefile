@@ -82,10 +82,7 @@ $(BUILD_DIR):
 	$(shell mkdir -p $(BUILD_DIR))
 
 debug-all: EXTRA_CXXFLAGS := -DDEBUG -g
-debug-all: clean all
-
-debug/%: EXTRA_CXXFLAGS := -DDEBUG -g
-debug/%: run/%
+debug-all: clean build-all
 
 list:
 	@echo $(TESTS)
