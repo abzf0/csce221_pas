@@ -8,7 +8,8 @@
 // for the iterator's value_type.
 //
 // If you have a vector<float>, the iterator's value
-// type will be float
+// type will be float. std::less will select the <
+// for sorting floats as the default comparator.
 
 namespace {
 	template<typename RandomIter>
@@ -18,6 +19,8 @@ namespace {
 template<typename RandomIter, typename Comparator = less_for_iter<RandomIter>>
 void bubble_sort(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) {
 	// You can add more of these aliases if necessary
+	// Random access iterators have the same traits you defined in the Vector class
+	// difference_type represents a pointer difference
 	using difference_type = typename RandomIter::difference_type;
 
 	// COMPLETE
