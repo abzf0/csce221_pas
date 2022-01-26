@@ -9,20 +9,30 @@
 //
 // If you have a vector<float>, the iterator's value
 // type will be float
-template<typename RandomIter>
-using less_for_iter_val = std::less<typename RandomIter::value_type>; 
 
-template<typename RandomIter, typename Comparator = less_for_iter_val<RandomIter>>
+namespace {
+	template<typename RandomIter>
+	using less_for_iter = std::less<typename RandomIter::value_type>; 
+}
+
+template<typename RandomIter, typename Comparator = less_for_iter<RandomIter>>
 void bubble_sort(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) {
-    // COMPLETE
+	// You can add more of these aliases if necessary
+	using difference_type = typename RandomIter::difference_type;
+
+	// COMPLETE
 }
 
-template<typename RandomIter, typename Comparator = less_for_iter_val<RandomIter>>
+template<typename RandomIter, typename Comparator = less_for_iter<RandomIter>>
 void insertion_sort(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) {
+	using difference_type = typename RandomIter::difference_type;
+
     // COMPLETE
 }
 
-template<typename RandomIter, typename Comparator = less_for_iter_val<RandomIter>>
+template<typename RandomIter, typename Comparator = less_for_iter<RandomIter>>
 void selection_sort(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) {
+	using difference_type = typename RandomIter::difference_type;
+
     // COMPLETE
 }
