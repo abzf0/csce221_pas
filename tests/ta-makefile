@@ -4,7 +4,7 @@ TA_CONFIG=ta_config
 
 SS_ASSIGNEMNT_NAME:=assignment-sorting-vectors
 SS_CLONE_LOCATION:=./sample-submissions
-SS_GIT_REPO:=/home/flu0r1ne/csce221/sample-submissions
+SS_GIT_REPO:=git@github.tamu.edu:csce221/sample-submissions.git
 SUBMISSION_DIR=submission
 
 SS_SUBMISSION_PATH:=$(SS_CLONE_LOCATION)/$(SS_ASSIGNEMNT_NAME)/$(SUBMISSION_DIR)
