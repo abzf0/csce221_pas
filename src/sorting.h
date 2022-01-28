@@ -16,11 +16,11 @@
 namespace {
 	template<typename RandomIter>
 	using less_for_iter = std::less<typename std::iterator_traits<RandomIter>::value_type>;
-
-	/* Efficiently swap two items - use this to implement your sorts */
-	template<typename T>
-	void swap(T & a, T & b) noexcept { /* COMPLETE */ }
 }
+
+/* Efficiently swap two items - use this to implement your sorts */
+template<typename T>
+void swap(T & a, T & b) noexcept { /* COMPLETE */ }
 
 template<typename RandomIter, typename Comparator = less_for_iter<RandomIter>>
 void bubble_sort(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) {
