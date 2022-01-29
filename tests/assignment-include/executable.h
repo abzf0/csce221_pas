@@ -17,6 +17,18 @@
 
 #define TEST(name) UTEST(SORT, name)
 
+template <typename T>
+inline std::ostream& operator<<(std::ostream& o, const std::vector<T>& vec) {
+    o << '[';
+    for (const T& e : vec) {
+        o << e;
+        if (&e != &vec.back()) {
+            o << ", ";
+        }
+    }
+    return o << ']';
+}
+
 // Setup main file
 UTEST_MAIN()
 

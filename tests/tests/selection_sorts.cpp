@@ -1,4 +1,5 @@
 #include "executable.h"
+#include <algorithm>
 #include <vector>
 
 TEST(selection_sort) {
@@ -14,6 +15,16 @@ TEST(selection_sort) {
         selection_sort(vec.begin(), vec.end());
         std::sort(gt.begin(), gt.end());
 
-        ASSERT_TRUE(std::equal(vec.begin(), vec.end(), gt.begin()));
+        bool equal = std::equal(vec.begin(), vec.end(), gt.begin());
+        if (!equal) {
+            std::cerr << "ERROR: Vector is not sorted!\n";
+            if (sz < 30) {
+                std::cerr << "\tYour Vector: " << vec
+                        << "\n\tCorrect Vector: " << gt << '\n';
+            } else {
+                std::cerr << "\tVectors are too large to print.\n";
+            }
+        }
+        ASSERT_TRUE(equal);
     }
 }

@@ -1,4 +1,6 @@
 #include "executable.h"
+#include "memorize.h"
+#include <algorithm>
 #include <vector>
 
 TEST(bubble_comparisons) {
@@ -20,8 +22,27 @@ TEST(bubble_comparisons) {
 
         std::sort(gt.begin(), gt.end(), [](double & i, double & j) { return i > j; });
 
-        ASSERT_TRUE(std::equal(vec.begin(), vec.end(), gt.begin()));
-        // TODO
-        ASSERT_EQ(0ULL, comparisons);
+        bool equal = std::equal(vec.begin(), vec.end(), gt.begin());
+        if (!equal) {
+            std::cerr << "ERROR: Vector is not sorted!\n"
+                    << "\tAre you using the Comparator comp?\n";
+            if (sz < 30) {
+                std::cerr << "\tYour Vector: " << vec
+                        << "\n\tCorrect Vector: " << gt << '\n';
+            } else {
+                std::cerr << "\tVectors are too large to print.\n";
+            }
+        }
+        ASSERT_TRUE(equal);
+
+        if (comparisons < memorize::bubble_comparisons[sz] - memorize::bubble_error(sz)) {
+            std::cerr << "ERROR: Comparisons (" << comparisons << ") is fewer than expected.\n"
+                    << "\tDid you implement Bubble Sort?" << std::endl;
+        } else if (memorize::bubble_comparisons[sz] + memorize::bubble_error(sz) < comparisons) {
+            std::cerr << "ERROR: Comparisons (" << comparisons << ") is greater than expected.\n"
+                    << "\tYou should make your algorithm more efficient.\n"
+                    << "\tHINT: Do not iterate over elements that are already sorted." << std::endl;
+        }
+        ASSERT_NEAR(memorize::bubble_comparisons[sz], comparisons, memorize::bubble_error(sz));
     }
 }
