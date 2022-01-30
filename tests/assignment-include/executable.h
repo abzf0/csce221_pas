@@ -18,7 +18,7 @@
 #define TEST(name) UTEST(SORT, name)
 
 template <typename T>
-inline std::ostream& operator<<(std::ostream& o, const std::vector<T>& vec) {
+std::ostream& operator<<(std::ostream& o, const std::vector<T>& vec) {
     o << '[';
     for (const T& e : vec) {
         o << e;
