@@ -17,15 +17,15 @@ TEST(sorts_efficent) {
         
         Memhook mh;
 
-        bubble_sort(arr0.begin(), arr0.end(), [](Box<int> & i, Box<int> & j) {
+        sort::bubble(arr0.begin(), arr0.end(), [](Box<int> & i, Box<int> & j) {
             return *i < *j;
         });
         
-        insertion_sort(arr1.begin(), arr1.end(), [](Box<int> & i, Box<int> & j) {
+        sort::insertion(arr1.begin(), arr1.end(), [](Box<int> & i, Box<int> & j) {
             return *i < *j;
         });
 
-        selection_sort(arr2.begin(), arr2.end(), [](Box<int> & i, Box<int> & j) {
+        sort::selection(arr2.begin(), arr2.end(), [](Box<int> & i, Box<int> & j) {
             return *i < *j;
         });
 
