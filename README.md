@@ -18,6 +18,8 @@ Your must implement the following functions:
 It may be helpful for you to consult:
 - Reference for Iterators: https://en.cppreference.com/w/cpp/iterator/iterator
 - Reference for Sorts: https://en.cppreference.com/w/cpp/algorithm/sort
+- Visualization of Sorting Algorithms: https://pulchroxloom.github.io/visualizing_sorts/
+- Videos of Sorting Algorithms Visualized: https://youtu.be/kPRA0W1kECg
 
 ## Turn In
 Submit the modified `sorting.h` to Gradescope. In general, submit everything except `main.cpp`.
