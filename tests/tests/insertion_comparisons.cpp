@@ -6,7 +6,7 @@
 TEST(insertion_comparisons) {
     Typegen t;
 
-    for(size_t sz = 0; sz < 1000; sz++) {
+    for(size_t sz = 0; sz < 800; sz++) {
         std::vector<double> vec(sz);
         std::vector<double> gt(sz);
 
@@ -15,7 +15,7 @@ TEST(insertion_comparisons) {
 
         size_t comparisons = 0;
 
-        insertion_sort(vec.begin(), vec.end(), [&comparisons](double & i, double & j) {
+        sort::insertion(vec.begin(), vec.end(), [&comparisons](double & i, double & j) {
             comparisons++;
             return i > j;
         });
