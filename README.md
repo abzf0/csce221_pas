@@ -9,11 +9,12 @@ You are to implement `bubble_sort()`, `insertion_sort()`, and `selection_sort()`
 Your must implement the following functions:
 | Function Name     | Function Description                                                                                                                                                         | Time Complexity            | &#35; Points            |
 | -------------     | ------------------------------------------------------------------------------                                                                                               | ------------------------   | ----------------------- |
-| `swap`            | swaps the position of two elements                                                                                                                                           | O(1)                       | 10     |
+| `swap`            | swaps the position of two elements                                                                                                                                           | O(1)                       | 5     |
 | `bubble_sort`     | Sorts elements in the range \[start, end) using the bubble sort algorithm. This sort should be optimized so the runtime function is about 1/2 n<sup>2</sup> in the worst case| O(n<sup>2</sup>)           | 30                      |
 | `insertion_sort`  | Sorts elements in the range \[start, end) using the insertion sort algorithm.                                                                                                | O(n<sup>2</sup>)           | 30                      |
 | `selection_sort`  | Sorts elements in the range \[start, end) using the selection sort algorithm.                                                                                                | O(n<sup>2</sup>)           | 30                      |
 
+An additional 5 points is earned if you do not allocate memory during any of the sorting algorithms. You should not need to do this, so you can almost consider these points as "*free*".
 
 It may be helpful for you to consult:
 - Reference for Iterators: https://en.cppreference.com/w/cpp/iterator/iterator
