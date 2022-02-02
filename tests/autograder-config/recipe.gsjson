@@ -7,7 +7,7 @@
             ],
             "points": 5,
             "time_limit": 5000,
-            "long_name": "Swap Uses Move Semantics"
+            "long_name": "Swap Uses Move Semantics [swap.cpp]"
         },
         {
             "name":"bubble_comparisons",
@@ -16,7 +16,7 @@
             ],
             "points": 15,
             "time_limit": 5000,
-            "long_name": "Bubble Sort Number of Comparisons"
+            "long_name": "Bubble Sort Number of Comparisons [bubble_comparisons.cpp]"
         },
         {
             "name":"bubble_sort",
@@ -25,7 +25,7 @@
             ],
             "points": 15,
             "time_limit": 5000,
-            "long_name": "Bubble Sort Correct Order"
+            "long_name": "Bubble Sort Correct Order [bubble_sorts.cpp]"
         },
         {
             "name":"insertion_comparisons",
@@ -34,7 +34,7 @@
             ],
             "points": 15,
             "time_limit": 5000,
-            "long_name": "Insertion Sort Number of Comparisons"
+            "long_name": "Insertion Sort Number of Comparisons [insertion_comparison.cpp]"
         },
         {
             "name":"insertion_sort",
@@ -43,7 +43,7 @@
             ],
             "points": 15,
             "time_limit": 5000,
-            "long_name": "Insertion Sort Correct Order"
+            "long_name": "Insertion Sort Correct Order [insertion_sorts.cpp]"
         },
         {
             "name":"selection_comparisons",
@@ -52,7 +52,7 @@
             ],
             "points": 15,
             "time_limit": 5000,
-            "long_name": "Selection Sort Number of Comparisons"
+            "long_name": "Selection Sort Number of Comparisons [selection_comparisons.cpp]"
         },
         {
             "name":"selection_sort",
@@ -70,7 +70,7 @@
             ],
             "points": 5,
             "time_limit": 5000,
-            "long_name": "Sorts Do Not Allocate Memory"
+            "long_name": "Sorts Do Not Allocate Memory [sorts_efficient.cpp]"
         }
     ]
 }
