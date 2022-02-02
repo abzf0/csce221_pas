@@ -1,13 +1,76 @@
 {
     "tests":[
         {
-            "name":"TODO",
+            "name":"swap",
             "cmds": [
-                "make -C tests SRC_DIR=../../submission -j8 run/TODO"
+                "make -C tests SRC_DIR=../../submission -j12 run/swap"
             ],
             "points": 5,
             "time_limit": 5000,
-            "long_name": "Test 1 - TODO"
+            "long_name": "Swap Uses Move Semantics"
+        },
+        {
+            "name":"bubble_comparisons",
+            "cmds": [
+                "make -C tests SRC_DIR=../../submission -j12 run/bubble_comparisons"
+            ],
+            "points": 15,
+            "time_limit": 5000,
+            "long_name": "Bubble Sort Number of Comparisons"
+        },
+        {
+            "name":"bubble_sort",
+            "cmds": [
+                "make -C tests SRC_DIR=../../submission -j12 run/bubble_sorts"
+            ],
+            "points": 15,
+            "time_limit": 5000,
+            "long_name": "Bubble Sort Correct Order"
+        },
+        {
+            "name":"insertion_comparisons",
+            "cmds": [
+                "make -C tests SRC_DIR=../../submission -j12 run/insertion_comparisons"
+            ],
+            "points": 15,
+            "time_limit": 5000,
+            "long_name": "Insertion Sort Number of Comparisons"
+        },
+        {
+            "name":"insertion_sort",
+            "cmds": [
+                "make -C tests SRC_DIR=../../submission -j12 run/insertion_sorts"
+            ],
+            "points": 15,
+            "time_limit": 5000,
+            "long_name": "Insertion Sort Correct Order"
+        },
+        {
+            "name":"selection_comparisons",
+            "cmds": [
+                "make -C tests SRC_DIR=../../submission -j12 run/selection_comparisons"
+            ],
+            "points": 15,
+            "time_limit": 5000,
+            "long_name": "Selection Sort Number of Comparisons"
+        },
+        {
+            "name":"selection_sort",
+            "cmds": [
+                "make -C tests SRC_DIR=../../submission -j12 run/selection_sorts"
+            ],
+            "points": 15,
+            "time_limit": 5000,
+            "long_name": "Selection Sort Correct Order"
+        },
+        {
+            "name":"sorts_efficient",
+            "cmds": [
+                "make -C tests SRC_DIR=../../submission -j12 run/sorts_efficient"
+            ],
+            "points": 5,
+            "time_limit": 5000,
+            "long_name": "Sorts Do Not Allocate Memory"
         }
     ]
 }
