@@ -16,7 +16,7 @@ TEST(swap) {
 
         {
             Memhook mh;
-            sort::swap(a_gt, b_gt);
+            sort::swap(a, b);
 
 			if (mh.n_allocs() != 0) {
                 std::cerr << "ERROR: Swap is allocating a new value.\n"
