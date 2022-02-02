@@ -47,6 +47,11 @@ Run every test in the [`./tests/tests`](./tests/tests) folder.
 ```sh
 make -C tests -j12 run-all
 ```
-
+## Input File Contents
+To help test your code we are providing various input files. 
+- Files with the `ordered` prefix consist of numbers in sequence 1, 2, ... , n
+- Files with the `rand` prefix consist of non-duplicate random numbers in the range [1, n]
+- Files with the `randdup` prefix consist of random numbers in the range [1, n]. There are some duplicate values
+- Files with the `reverse` prefix consist of numbers in sequence n, n-1, ... , 1
 ## Turn In
 Submit the modified `sorting.h` to Gradescope. In general, submit everything except `main.cpp`.
