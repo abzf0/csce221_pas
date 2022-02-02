@@ -25,14 +25,14 @@ It may be helpful for you to consult:
 ### Run The Tests
 To run the tests, you need to rename [`main.cpp`](./src/main.cpp) or you need to rename the `int main` function within that file.
 
-Execute the following commands from the [`sorting-vectors`](.) folder to accomplish what you need:
+Execute the following commands from the `sorting-vectors` folder to accomplish what you need:
 
 **Build all of the tests**
 ```sh
 make -C tests -j12 build-all
 ```
 
-**Build all of the tests for debugging (find segfaults, etc.)** &ndash; In this case, you must run the tests separately. `cd tests/build && gdb <test-name>` works on Linux/WSL, and if you replace `gdb` with `lldb` it works on Mac OSX. Note that you will need to type `cd ../..` to get back to the [`sorting-vectors`](.) folder.
+**Build all of the tests for debugging (find segfaults, etc.)** &ndash; In this case, you must run the tests separately. `cd tests/build && gdb <test-name>` works on Linux/WSL, and if you replace `gdb` with `lldb` it works on Mac OSX. Note that you will need to type `cd ../..` to get back to the `sorting-vectors` folder.
 ```sh
 make -C tests -j12 debug-all
 ```
