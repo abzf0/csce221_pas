@@ -17,11 +17,12 @@ using std::vector;
 
 enum class Sort { BUBBLE, INSERTION, SELECTION };
 
+
 template <typename T>
 struct CustomComparator {
     static size_t comparisons;
 
-    bool operator()(const T& a, const T& b) const {
+    bool operator()(const T& a, const T& b) {
         comparisons++;
         return a < b;
     }
@@ -30,12 +31,22 @@ struct CustomComparator {
 template <typename T>
 size_t CustomComparator<T>::comparisons = 0;
 
+struct SortingStats {
+	duration<double> time_span;
+	size_t comparisons;
+};
+
+template<typename RandomIter>
+SortingStats benchmark_sort(Sort sorting_algorithm, RandomIter begin, RandomIter end);
+
 template <class T>
 ostream& operator<<(ostream& o, vector<T> vec);
 
 ostream& operator<<(ostream& o, const Sort& sort);
 
 [[nodiscard]] vector<int> getData();
+
+[[nodiscard]] vector<int> readFileData(const std::string & filepath);
 
 [[nodiscard]] vector<int> getFileData();
 
@@ -46,48 +57,39 @@ ostream& operator<<(ostream& o, const Sort& sort);
 template<typename RandomIter, typename Comparator = std::less<typename std::iterator_traits<RandomIter>::value_type>>
 bool testIfSorted(RandomIter begin, RandomIter end, Comparator comp = Comparator{});
 
-int main(int argc, char** argv)
-{
+void die();
+
+void die_usage(const char * prog);
+
+void handle_command_usage(int argc, char** argv);
+
+int main(int argc, char** argv) {
+
+	if(argc > 1) {
+		handle_command_usage(argc, argv);
+		return 0;
+	}
+
     vector<int> data = getData();
 
     cout << "Original Data: " << data << endl;
 
     Sort sorting_algorithm = getSortingAlgorithm();
 
-    time_point<high_resolution_clock> start, end;
-
-    CustomComparator<int> comp;
-
-    switch (sorting_algorithm) {
-        case Sort::BUBBLE:
-        start = high_resolution_clock::now();
-        sort::bubble(data.begin(), data.end(), comp);
-        end = high_resolution_clock::now();
-        break;
-        case Sort::INSERTION:
-        start = high_resolution_clock::now();
-        sort::insertion(data.begin(), data.end(), comp);
-        end = high_resolution_clock::now();
-        break;
-        case Sort::SELECTION:
-        start = high_resolution_clock::now();
-        sort::selection(data.begin(), data.end(), comp);
-        end = high_resolution_clock::now();
-        break;
-    }
-
-    duration<double> time_span = end - start;
+	SortingStats stats = benchmark_sort(sorting_algorithm, data.begin(), data.end());
 
     cout << "Sorted Data: " << data << endl;
 
     cout << "Running time for " << sorting_algorithm << " on a vector of " << data.size() << " ints: ";
     if (data.size() < 300) {
-        cout << duration_cast<microseconds>(time_span).count() << " \u03BCs (microseconds)" << endl;
+        cout << duration_cast<microseconds>(stats.time_span).count() << " \u03BCs (microseconds)" << endl;
     } else {
-        cout << duration_cast<milliseconds>(time_span).count() << " ms (milliseconds)" << endl;
+        cout << duration_cast<milliseconds>(stats.time_span).count() << " ms (milliseconds)" << endl;
     }
 
-    cout << "Number of comparisons: " << CustomComparator<int>::comparisons << endl;
+    cout << "Number of comparisons: " << stats.comparisons << endl;
+
+    CustomComparator<int> comp;
 
     if (!testIfSorted(data.begin(), data.end(), comp)) {
         cerr << "Warning: The sorted sequence IS NOT sorted!\n";
@@ -95,6 +97,79 @@ int main(int argc, char** argv)
 
     return 0;
 }
+
+template<typename RandomIter>
+SortingStats benchmark_sort(Sort sorting_algorithm, RandomIter begin, RandomIter end) {
+    time_point<high_resolution_clock> t_start, t_end;
+
+    CustomComparator<int> comp;
+
+    switch (sorting_algorithm) {
+        case Sort::BUBBLE:
+        t_start = high_resolution_clock::now();
+        sort::bubble(begin, end, comp);
+        t_end = high_resolution_clock::now();
+        break;
+        case Sort::INSERTION:
+        t_start = high_resolution_clock::now();
+        sort::insertion(begin, end, comp);
+        t_end = high_resolution_clock::now();
+        break;
+        case Sort::SELECTION:
+        t_start = high_resolution_clock::now();
+        sort::selection(begin, end, comp);
+        t_end = high_resolution_clock::now();
+        break;
+    }
+
+	SortingStats stats;
+
+	stats.time_span = t_end - t_start;
+	stats.comparisons = comp.comparisons;
+
+	return stats;
+}
+
+void die() {
+	cerr.flush();
+	exit(1);
+}
+
+void die_usage(const char * prog) {
+	cerr << "USAGE: " << prog << " [-b|-i|-s] file" << endl;
+	die();
+}
+
+void handle_command_usage(int argc, char** argv) {
+	if (argc != 3) {
+		die_usage(argv[0]);
+	}
+
+	std::string sort_opt(argv[1]);
+	std::string file_opt(argv[2]);
+
+	Sort sorting_algorithm;
+	if (sort_opt == "-b") { sorting_algorithm = Sort::BUBBLE; }
+	else if (sort_opt == "-i") { sorting_algorithm = Sort::INSERTION; }
+	else if (sort_opt == "-s") { sorting_algorithm = Sort::SELECTION; }
+	else {
+		cerr << sort_opt << " not a valid option.\n";
+		die_usage(argv[0]);
+	}
+
+
+	std::vector<int> data = readFileData(file_opt);
+
+	SortingStats stats = benchmark_sort(sorting_algorithm, data.begin(), data.end());
+
+	cout.setf(std::ios::fixed);
+	cout.precision(3);
+	cout << stats.comparisons
+		 << "," << duration_cast<microseconds>(stats.time_span).count()
+		 << endl;
+	cout.unsetf(std::ios::fixed);
+}
+
 
 template <class T>
 ostream& operator<<(ostream& o, vector<T> vec) {
@@ -158,15 +233,12 @@ bool testIfSorted(RandomIter begin, RandomIter end, Comparator comp) {
     }
 }
 
-[[nodiscard]] vector<int> getFileData() {
-    string filepath;
-    cout << "Enter Filepath to Read: ";
-    cin >> filepath;
+[[nodiscard]] vector<int> readFileData(const std::string & filepath) {
     ifstream file{filepath};
     vector<int> retval;
     if (!file.is_open()) {
         cerr << "File not found: '" << filepath << "'\n";
-        return retval;
+        exit(1);
     }
     int value;
     while (file >> value) {
@@ -175,24 +247,25 @@ bool testIfSorted(RandomIter begin, RandomIter end, Comparator comp) {
     return retval;
 }
 
-#define forever for(;;)
+[[nodiscard]] vector<int> getFileData() {
+    string filepath;
+    cout << "Enter Filepath to Read: ";
+    cin >> filepath;
+	return readFileData(filepath);
+}
 
 [[nodiscard]] vector<int> getManualData() {
     vector<int> retval;
     int value;
     cout << "Enter Values ['q' to stop]: ";
-    forever {
-        if (!(cin >> value)) {
-            break;
-        }
+
+    while(cin >> value)
         retval.push_back(value);
-    }
+
     cin.clear();
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return retval;
 }
-
-#undef forever
 
 [[nodiscard]] Sort getSortingAlgorithm() {
     char input = '\0';
