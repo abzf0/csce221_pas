@@ -1,18 +1,17 @@
 #include "executable.h"
 #include <vector>
+#include "box.h"
 
 TEST(swap) {
     Typegen t;
-    for(size_t sz = 0; sz < 100; ++sz) {
-        std::vector<int> a_gt(sz);
-        std::vector<int> a(sz);
-        std::vector<int> b_gt(sz);
-        std::vector<int> b(sz);
+    for(size_t i = 0; i < 100; ++i) {
+        int a_gt;
+        Box<int> a {new int};
+        int b_gt;
+        Box<int> b {new int};
 
-        for(size_t i = 0; i < sz; ++i) {
-            a_gt[i] = a[i] = t.get<int>();
-            b_gt[i] = b[i] = t.get<int>();
-        }
+		a_gt = *a = t.get<int>();
+		b_gt = *b = t.get<int>();
 
         {
             Memhook mh;
@@ -30,18 +29,17 @@ TEST(swap) {
             }
             ASSERT_EQ(0UL, mh.n_frees());
 
-            if (a_gt != b) {
+            if (a_gt != *b) {
                 std::cerr << "ERROR: b does not contain the same values that a_gt contains.\n"
                     << "\tDid you swap the values?\n";
             }
-            if (b_gt != a) {
+            if (b_gt != *a) {
                 std::cerr << "ERROR: a does not contain the same values that b_gt contains.\n"
                     << "\tDid you swap the values?\n";
             }
-            for(size_t i = 0; i < sz; ++i) {
-                ASSERT_EQ(a_gt[i], b[i]);
-                ASSERT_EQ(b_gt[i], a[i]);
-            }
+
+			ASSERT_EQ(a_gt, *b);
+			ASSERT_EQ(b_gt, *a);
         }
     }
 }
