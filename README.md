@@ -32,11 +32,6 @@ Execute the following commands from the `sorting-vectors` folder to accomplish w
 make -C tests -j12 build-all
 ```
 
-**Build all of the tests for debugging (find segfaults, etc.)** &ndash; In this case, you must run the tests separately. `cd tests/build && gdb <test-name>` works on Linux/WSL, and if you replace `gdb` with `lldb` it works on Mac OSX. Note that you will need to type `cd ../..` to get back to the `sorting-vectors` folder.
-```sh
-make -C tests -j12 debug-all
-```
-
 **Run the test called `<test-name>`.** Replace `<test-name>` with the name of any `.cpp` file in the [`./tests/tests`](./tests/tests) folder.
 ```sh
 make -C tests -j12 run/<test-name>
@@ -46,6 +41,16 @@ make -C tests -j12 run/<test-name>
 ```sh
 make -C tests -j12 run-all
 ```
+
+**Debugging tests** &ndash; For a detailed view, see [./tests/README.md](./tests/README.md).
+```sh
+make -C tests -j12 build-all
+cd tests/build
+gdb <test-name>
+cd ../..
+```
+The first command builds the tests, the next enters the folder where the tests were build. The third invokes `gdb` (**use `lldb` if on Mac OSX**) which is used to debug the program by examining Segmentation Faults and running code line-by-line. Finally, the last command takes you back to the top-level directory.
+
 ## Input File Contents
 To help test your code we are providing various input files. 
 - Files with the `ordered` prefix consist of numbers in sequence 1, 2, ... , n
