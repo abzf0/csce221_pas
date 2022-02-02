@@ -57,8 +57,6 @@ ostream& operator<<(ostream& o, const Sort& sort);
 template<typename RandomIter, typename Comparator = std::less<typename std::iterator_traits<RandomIter>::value_type>>
 bool testIfSorted(RandomIter begin, RandomIter end, Comparator comp = Comparator{});
 
-void die();
-
 void die_usage(const char * prog);
 
 void handle_command_usage(int argc, char** argv);
@@ -130,14 +128,9 @@ SortingStats benchmark_sort(Sort sorting_algorithm, RandomIter begin, RandomIter
 	return stats;
 }
 
-void die() {
-	cerr.flush();
-	exit(1);
-}
-
 void die_usage(const char * prog) {
 	cerr << "USAGE: " << prog << " [-b|-i|-s] file" << endl;
-	die();
+	exit(1);
 }
 
 void handle_command_usage(int argc, char** argv) {
