@@ -18,10 +18,13 @@ INCLUDE_DIR?=include
 ASSIGNMENT_INCLUDE_DIR?=assignment-include
 ASSIGNMENT_UTILS_DIR?=assignment-utils
 
+DEBUG_FLAGS := -DDEBUG -g
+
 CXX?=g++
 CFLAGS ?=
 CFLAGS += -std=c++17
 CFLAGS += -Wall -pedantic
+CFLAGS += $(DEBUG_FLAGS)
 # work in progress
 # CFLAGS += -fsanitize=address
 CFLAGS += -I$(INCLUDE_DIR) -I$(ASSIGNMENT_INCLUDE_DIR)
@@ -80,9 +83,6 @@ build-all all: $(EXES)
 
 $(BUILD_DIR):
 	$(shell mkdir -p $(BUILD_DIR))
-
-debug-all: EXTRA_CXXFLAGS := -DDEBUG -g
-debug-all: clean build-all
 
 list:
 	@echo $(TESTS)
