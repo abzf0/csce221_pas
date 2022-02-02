@@ -7,7 +7,7 @@
 ###
 ### USAGE:
 ### Compile your program with:
-### g++ -o src/main src/main.cpp
+### g++ -std=c++17 -o src/main src/main.cpp
 ###
 ### Run: bash generate_csv.bash > sorting_data.csv
 
