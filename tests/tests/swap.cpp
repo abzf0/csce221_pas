@@ -8,23 +8,28 @@ TEST(swap) {
         std::vector<int> a(sz);
         std::vector<int> b_gt(sz);
         std::vector<int> b(sz);
+
         for(size_t i = 0; i < sz; ++i) {
             a_gt[i] = a[i] = t.get<int>();
             b_gt[i] = b[i] = t.get<int>();
         }
+
         {
             Memhook mh;
             sort::swap(a_gt, b_gt);
-            if (mh.n_allocs() != 0) {
+
+			if (mh.n_allocs() != 0) {
                 std::cerr << "ERROR: Swap is allocating a new value.\n"
                     << "\tDoes your swap use copy or move semantics?\n";
             }
-            ASSERT_EQ(0UL, mh.n_frees());
+            ASSERT_EQ(0UL, mh.n_allocs());
+
             if (mh.n_frees() != 0) {
                 std::cerr << "ERROR: Swap is freeing (deleting) a value.\n"
                     << "\tShould swap do this?\n";
             }
             ASSERT_EQ(0UL, mh.n_frees());
+
             if (a_gt != b) {
                 std::cerr << "ERROR: b does not contain the same values that a_gt contains.\n"
                     << "\tDid you swap the values?\n";
