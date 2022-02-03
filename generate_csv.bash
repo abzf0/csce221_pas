@@ -33,7 +33,7 @@ bench_all() {
 	bench ${sort_arg} rand
 	echo "${sort_name} [REVERSE]"
 	bench ${sort_arg} reverse
-	echo "${sort_name} [REVERSE WITH DUPLICATES]"
+	echo "${sort_name} [RANDOM WITH DUPLICATES]"
 	bench ${sort_arg} randdup
 }
 
