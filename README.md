@@ -39,16 +39,18 @@ make -C tests -j12 run/<test-name>
 
 **Run every test** in the [`./tests/tests`](./tests/tests) folder.
 ```sh
-make -C tests -j12 run-all
+make -C tests -j12 run-all -k
 ```
 
 **Debugging tests** &ndash; For a detailed view, see [./tests/README.md](./tests/README.md).
 ```sh
-make -C tests -j12 build-all
+make -C tests -j12 build-all -k
 cd tests/build
 gdb <test-name>
 cd ../..
 ```
+> Alex recommends you use `cgdb` which has the same commands as `gdb` but a better user interface. You can install it with `sudo apt install cgdb` on `WSL` or `brew install cgdb` on `MacOS` (provided you have [brew](https://brew.sh))
+
 The first command builds the tests, the next enters the folder where the tests were build. The third invokes `gdb` (**use `lldb` if on Mac OSX**) which is used to debug the program by examining Segmentation Faults and running code line-by-line. Finally, the last command takes you back to the top-level directory.
 
 ## Input File Contents
