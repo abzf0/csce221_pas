@@ -6,7 +6,7 @@ You are to implement `bubble_sort()`, `insertion_sort()`, and `selection_sort()`
 
 **HINT:** Implement `swap()` first. This is going to be used in all the sorting algorithms. Move operations are your friend.
 
-Your must implement the following functions:
+You must implement the following functions:
 | Function Name     | Function Description                                                                                                                                                         | Time Complexity            | &#35; Points            |
 | -------------     | ------------------------------------------------------------------------------                                                                                               | ------------------------   | ----------------------- |
 | `swap`            | swaps the position of two elements                                                                                                                                           | O(1)                       | 5     |
