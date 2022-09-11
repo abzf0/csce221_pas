@@ -1,5 +1,7 @@
-# Sorting Vectors
-The goal of this assignment is to implement various sorting algorithms for the [`vector`](https://en.cppreference.com/w/cpp/container/vector) data structure.
+# Sorting
+
+The goal of this assignment is to implement the `O(n^2)` sorting algorithms using a similar interface to `std::sort`. These algorithms can be used to sort data structures which implement random access iterators. This includes the [`std::vector`](https://en.cppreference.com/w/cpp/container/vector) data structure you completed in the last assignment.
+
 ## Assignment
 ### Implement Sorting Algorithms
 You are to implement `bubble_sort()`, `insertion_sort()`, and `selection_sort()` using iterators. 
