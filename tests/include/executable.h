@@ -12,8 +12,6 @@
 #include "typegen.h"
 // Include source file
 #include "sorting.h"
-// Include custom insertions
-#include "more_assertions.h"
 
 #define TEST(name) UTEST(SORT, name)
 
