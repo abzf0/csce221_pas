@@ -61,5 +61,18 @@ To help test your code we are providing various input files.
 - Files with the `rand` prefix consist of non-duplicate random numbers in the range [1, n]
 - Files with the `randdup` prefix consist of random numbers in the range [1, n]. There are some duplicate values
 - Files with the `reverse` prefix consist of numbers in sequence n, n-1, ... , 1
+
+## Helper program to generate sorted data:
+
+To complete the report, you will need to benchmark the number of comparisons performed by each sorting algorithm.
+You can do this manually by compiling and executing `main` but we've written a script to automatically collect this
+data into a file.
+
+To run it, execute the following commands on MacOS or WSL:
+```
+[#] g++ -std=c++17 -o src/main src/main.cpp
+[#] bash generate_csv.bash > sorting_data.csv
+```
+
 ## Turn In
 Submit the modified `sorting.h` to Gradescope. In general, submit everything except `main.cpp`.
