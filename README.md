@@ -71,6 +71,9 @@ It may be helpful for you to consult:
 - Videos of Sorting Algorithms Visualized: https://youtu.be/kPRA0W1kECg
 
 ### Run The Tests
+
+**First consult this guide: [`tests/README.md`](./tests/README.md)**
+
 To run the tests, you need to rename [`main.cpp`](./src/main.cpp) or you need to rename the `int main` function within that file.
 
 Execute the following commands from the `sorting-vectors` folder to accomplish what you need:
