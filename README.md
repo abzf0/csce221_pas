@@ -20,7 +20,7 @@ You are to implement `bubble_sort()`, `insertion_sort()`, and `selection_sort()`
 
 **HINT:** Implement `swap()` first. This is going to be used in all the sorting algorithms. Move operations are your friend.
 
-You must implement the following functions:
+#### You must implement the following functions:
 
 `void swap(T & a, T & b) noexcept`
 
