@@ -1,19 +1,19 @@
 #pragma once
 
 #include <functional> // std::less
-#include <iterator>
-
-// This is C++ magic which will allows our function
-// to default to using a < b if the comparator arg
-// is unspecified. It uses defines std::less<T>
-// for the iterator's value_type.
-//
-// For example: if you have a vector<float>, the 
-// iterator's value type will be float. std::less 
-// will select the < for sorting floats as the 
-// default comparator.
+#include <iterator> // std::iterator_traits
 
 namespace sort {
+
+	// This is C++ magic which will allows our function
+	// to default to using a < b if the comparator arg
+	// is unspecified. It uses defines std::less<T>
+	// for the iterator's value_type.
+	//
+	// For example: if you have a vector<float>, the 
+	// iterator's value type will be float. std::less 
+	// will select the < for sorting floats as the 
+	// default comparator.
 	template<typename RandomIter>
 	using less_for_iter = std::less<typename std::iterator_traits<RandomIter>::value_type>;
 

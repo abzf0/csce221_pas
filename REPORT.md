@@ -16,7 +16,7 @@ Consider the statement:
 ```C++
 using less_for_iter = std::less<typename std::iterator_traits<RandomIter>::value_type>
 ```
-Explain the role of `std::less`. Provided a `std::vector<char>` iterator, to which type does `typename std::iterator_traits<RandomIter>::value_type` resolve? What is the purpose of the statement as a whole?
+What is the purpose of `std::less` in the STL? Provided a `std::vector<char>` iterator, to which type does `typename std::iterator_traits<RandomIter>::value_type` resolve? What default behavior does `sort::less_for_iter` define for the comparator `comp`?
 
 ## Question 3
 
