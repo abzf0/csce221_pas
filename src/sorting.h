@@ -19,7 +19,7 @@ namespace sort {
 
 	/* Efficiently swap two items - use this to implement your sorts */
 	template<typename T>
-	void swap(T & a, T & b) noexcept { /* COMPLETE */ }
+	void swap(T & a, T & b) noexcept { /* TODO */ }
 
 	template<typename RandomIter, typename Comparator = less_for_iter<RandomIter>>
 	void bubble(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) {
@@ -32,12 +32,12 @@ namespace sort {
 		using reference       = typename _it::reference;
 		using pointer         = typename _it::pointer;
 
-		// COMPLETE
+		// TODO
 	}
 
 	template<typename RandomIter, typename Comparator = less_for_iter<RandomIter>>
-	void insertion(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) { /* COMPLETE */ }
+	void insertion(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) { /* TODO */ }
 
 	template<typename RandomIter, typename Comparator = less_for_iter<RandomIter>>
-	void selection(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) { /* COMPLETE */ }
+	void selection(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) { /* TODO */ }
 }
