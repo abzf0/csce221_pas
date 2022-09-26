@@ -26,7 +26,7 @@ What is a comparator? What are the parameters for a comparator and the return ty
 
 `sort::insertion(collection.begin(), collection.end());` will sort elements in ascending order.
 
-How would you call sort::insertion to sort elements in descending order (greatest to least)? (Be prepared to provide implementation details, including how to call sort::insertion.)
+How would you call `sort::insertion` to sort elements in descending order (greatest to least)? (Be prepared to provide implementation details, including how to call `sort::insertion`.)
 
 ## Question 5
 
