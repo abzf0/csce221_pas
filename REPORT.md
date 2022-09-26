@@ -24,7 +24,9 @@ What is a comparator? What are the parameters for a comparator and the return ty
 
 ## Question 4
 
-Without providing an alternative comparator, `sort::insertion` will sort elements in ascending order. How would you call `sort::insertion` to sort elements in descending order (greatest to least)? (Be prepared to provide implementation details, including how to call `sort::insertion`.)
+`sort::insertion(collection.begin(), collection.end());` will sort elements in ascending order.
+
+How would you call sort::insertion to sort elements in descending order (greatest to least)? (Be prepared to provide implementation details, including how to call sort::insertion.)
 
 ## Question 5
 
