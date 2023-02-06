@@ -15,7 +15,7 @@
                 "make -C tests SRC_DIR=../../submission -j12 run/bubble_comparisons"
             ],
             "points": 15,
-            "time_limit": 5000,
+            "time_limit": 10000,
             "long_name": "Bubble Sort Number of Comparisons [bubble_comparisons.cpp]"
         },
         {
@@ -24,7 +24,7 @@
                 "make -C tests SRC_DIR=../../submission -j12 run/bubble_sorts"
             ],
             "points": 15,
-            "time_limit": 5000,
+            "time_limit": 10000,
             "long_name": "Bubble Sort Correct Order [bubble_sorts.cpp]"
         },
         {
