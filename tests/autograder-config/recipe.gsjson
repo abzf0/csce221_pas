@@ -3,7 +3,7 @@
         {
             "name":"swap",
             "cmds": [
-                "make -C tests SRC_DIR=../../submission -j12 run/swap"
+                "make -C tests RTEST_SRC_DIR=../../submission -j12 run/swap"
             ],
             "points": 5,
             "time_limit": 5000,
@@ -12,7 +12,7 @@
         {
             "name":"bubble_comparisons",
             "cmds": [
-                "make -C tests SRC_DIR=../../submission -j12 run/bubble_comparisons"
+                "make -C tests RTEST_SRC_DIR=../../submission -j12 run/bubble_comparisons"
             ],
             "points": 15,
             "time_limit": 10000,
@@ -21,7 +21,7 @@
         {
             "name":"bubble_sort",
             "cmds": [
-                "make -C tests SRC_DIR=../../submission -j12 run/bubble_sorts"
+                "make -C tests RTEST_SRC_DIR=../../submission -j12 run/bubble_sorts"
             ],
             "points": 15,
             "time_limit": 10000,
@@ -30,7 +30,7 @@
         {
             "name":"insertion_comparisons",
             "cmds": [
-                "make -C tests SRC_DIR=../../submission -j12 run/insertion_comparisons"
+                "make -C tests RTEST_SRC_DIR=../../submission -j12 run/insertion_comparisons"
             ],
             "points": 15,
             "time_limit": 5000,
@@ -39,7 +39,7 @@
         {
             "name":"insertion_sort",
             "cmds": [
-                "make -C tests SRC_DIR=../../submission -j12 run/insertion_sorts"
+                "make -C tests RTEST_SRC_DIR=../../submission -j12 run/insertion_sorts"
             ],
             "points": 15,
             "time_limit": 5000,
@@ -48,7 +48,7 @@
         {
             "name":"selection_comparisons",
             "cmds": [
-                "make -C tests SRC_DIR=../../submission -j12 run/selection_comparisons"
+                "make -C tests RTEST_SRC_DIR=../../submission -j12 run/selection_comparisons"
             ],
             "points": 15,
             "time_limit": 5000,
@@ -57,7 +57,7 @@
         {
             "name":"selection_sort",
             "cmds": [
-                "make -C tests SRC_DIR=../../submission -j12 run/selection_sorts"
+                "make -C tests RTEST_SRC_DIR=../../submission -j12 run/selection_sorts"
             ],
             "points": 15,
             "time_limit": 5000,
@@ -66,7 +66,7 @@
         {
             "name":"sorts_efficient",
             "cmds": [
-                "make -C tests SRC_DIR=../../submission -j12 run/sorts_efficient"
+                "make -C tests RTEST_SRC_DIR=../../submission -j12 run/sorts_efficient"
             ],
             "points": 5,
             "time_limit": 5000,
