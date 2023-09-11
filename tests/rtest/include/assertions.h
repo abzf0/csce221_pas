@@ -45,6 +45,7 @@ bool tdbg_empty();
     UTEST_AUTO(x) xEval = (x);                                                 \
     UTEST_AUTO(y) yEval = (y);                                                 \
     if (!((xEval)cond(yEval))) {                                               \
+      UTEST_PRINTF("%s:%u: Failure\n", __FILE__, __LINE__);                    \
       UTEST_PRINTF("  Expected : (");                                          \
       UTEST_PRINTF(#x ") " #cond " (" #y);                                     \
       UTEST_PRINTF(")\n");                                                     \
