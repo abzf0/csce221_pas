@@ -1,6 +1,8 @@
-# Sorting
+# Sorting & Comparing
 
-The goal of this assignment is to implement the `O(n^2)` sorting algorithms using a similar interface to `std::sort`. These algorithms can be used to sort data structures which implement random access iterators. This includes the [`std::vector`](https://en.cppreference.com/w/cpp/container/vector) data structure you completed in the last assignment.
+One of the goals of this assignment is to implement the `O(n^2)` sorting algorithms using a similar interface to `std::sort`. These algorithms can be used to sort data structures which implement random access iterators. This includes the [`std::vector`](https://en.cppreference.com/w/cpp/container/vector) data structure you completed in the last assignment.
+
+The other goal of this assignment is to expand your understanding of comparators by demonstrating how they might be implemented. You have worked with comparators in PA2 and will continue to work with them in future PAs, so it is important that you understand how to work with them.
 
 ## Getting Started
 Download this code by running the following command in the directory of your choice:
@@ -69,6 +71,23 @@ It may be helpful for you to consult:
 - Reference for Sorts: https://en.cppreference.com/w/cpp/algorithm/sort
 - Visualization of Sorting Algorithms: https://pulchroxloom.github.io/visualizing_sorts/
 - Videos of Sorting Algorithms Visualized: https://youtu.be/kPRA0W1kECg
+
+### Student.h
+There are two functions to complete in `Student.h`. You can complete them in the order listed.
+
+----
+`GPAComparator::operator()`
+
+**Description:** Describes an ordering ascending on GPA primarily and descending on ID secondly.
+
+**Complexity: O(1)**
+
+----
+`KnownOrderComparator::operator()`
+
+**Description:** Describes an ordering that matches the ordering of `_student_ranking`.
+
+**Complexity: O(n)**
 
 ### Run The Tests
 
