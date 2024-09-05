@@ -1,5 +1,7 @@
 # Sorting Vectors - Oral Report
 
+**NOTE: THE ORAL REPORT IS NO LONGER PART OF THE COURSE. THIS REMNANT IS ONLY HERE FOR EXTRA/OPTIONAL PRACTICE**
+
 For the sorting vectors report, you will be asked three questions to test your conceptual understanding of the assignment. Some questions will expand on the concepts you learned. You will answer orally. We are expecting responses to be precise and concise. 1-3 sentences about each are sufficient. We may ask clarifying questions. Be prepared. (See the list of questions below.) Since we have many reports to complete in a single lab period, the report will be limited to two minutes.
 
 The oral reports will be scored as "exemplary" (5 points), "mostly sufficient," "incomplete," or "insufficient" (0 points). The point value for "mostly sufficient" and "incomplete" will depend on the difficulty of the question. The points will be awarded in the programming assignment category.

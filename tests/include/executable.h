@@ -13,7 +13,14 @@
 // Include source file
 #include "sorting.h"
 
+#include <list>
+#include <vector>
+#include "Student.h"
+
 #define TEST(name) UTEST(SORT, name)
+
+// Globally defined TEST_ITER for strenuousness
+size_t constexpr TEST_ITER = 10;
 
 template <typename T>
 std::ostream& operator<<(std::ostream& o, const std::vector<T>& vec) {

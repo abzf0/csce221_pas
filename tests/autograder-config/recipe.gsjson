@@ -5,7 +5,7 @@
             "cmds": [
                 "make -C tests RTEST_SRC_DIR=../../submission -j12 run/swap"
             ],
-            "points": 5,
+            "points": 4,
             "time_limit": 5000,
             "long_name": "Swap Uses Move Semantics [swap.cpp]"
         },
@@ -14,7 +14,7 @@
             "cmds": [
                 "make -C tests RTEST_SRC_DIR=../../submission -j12 run/bubble_comparisons"
             ],
-            "points": 15,
+            "points": 14,
             "time_limit": 10000,
             "long_name": "Bubble Sort Number of Comparisons [bubble_comparisons.cpp]"
         },
@@ -23,7 +23,7 @@
             "cmds": [
                 "make -C tests RTEST_SRC_DIR=../../submission -j12 run/bubble_sorts"
             ],
-            "points": 15,
+            "points": 14,
             "time_limit": 10000,
             "long_name": "Bubble Sort Correct Order [bubble_sorts.cpp]"
         },
@@ -32,7 +32,7 @@
             "cmds": [
                 "make -C tests RTEST_SRC_DIR=../../submission -j12 run/insertion_comparisons"
             ],
-            "points": 15,
+            "points": 14,
             "time_limit": 5000,
             "long_name": "Insertion Sort Number of Comparisons [insertion_comparison.cpp]"
         },
@@ -41,7 +41,7 @@
             "cmds": [
                 "make -C tests RTEST_SRC_DIR=../../submission -j12 run/insertion_sorts"
             ],
-            "points": 15,
+            "points": 14,
             "time_limit": 5000,
             "long_name": "Insertion Sort Correct Order [insertion_sorts.cpp]"
         },
@@ -50,7 +50,7 @@
             "cmds": [
                 "make -C tests RTEST_SRC_DIR=../../submission -j12 run/selection_comparisons"
             ],
-            "points": 15,
+            "points": 14,
             "time_limit": 5000,
             "long_name": "Selection Sort Number of Comparisons [selection_comparisons.cpp]"
         },
@@ -59,7 +59,7 @@
             "cmds": [
                 "make -C tests RTEST_SRC_DIR=../../submission -j12 run/selection_sorts"
             ],
-            "points": 15,
+            "points": 14,
             "time_limit": 5000,
             "long_name": "Selection Sort Correct Order"
         },
@@ -71,6 +71,24 @@
             "points": 5,
             "time_limit": 5000,
             "long_name": "Sorts Do Not Allocate Memory [sorts_efficient.cpp]"
+        },
+        {
+            "name": "gpa_comp",
+            "cmds": [
+                "make -C tests RTEST_SRC_DIR=../../submission -j12 run/gpa_comp"
+            ],
+            "points": 2,
+            "time_limit": 5000,
+            "long_name": "Test 0 - GPA Comparator"
+        },
+        {
+            "name": "known_order",
+            "cmds": [
+                "make -C tests RTEST_SRC_DIR=../../submission -j12 run/known_order"
+            ],
+            "points": 5,
+            "time_limit": 5000,
+            "long_name": "Test 1 - Known Order Comparator"
         }
     ]
 }
