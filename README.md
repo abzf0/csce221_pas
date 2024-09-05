@@ -2,7 +2,7 @@
 
 One of the goals of this assignment is to implement the `O(n^2)` sorting algorithms using a similar interface to `std::sort`. These algorithms can be used to sort data structures which implement random access iterators. This includes the [`std::vector`](https://en.cppreference.com/w/cpp/container/vector) data structure you completed in the last assignment.
 
-The other goal of this assignment is to expand your understanding of comparators by demonstrating how they might be implemented. You have worked with comparators in PA2 and will continue to work with them in future PAs, so it is important that you understand how to work with them.
+The other goal of this assignment is to expand your understanding of comparators by demonstrating how they might be implemented. You will use comparators in this PA and will continue to work with them in future PAs, so it is important that you understand how to work with them.
 
 ## Getting Started
 Download this code by running the following command in the directory of your choice:
@@ -26,7 +26,7 @@ You are to implement `bubble_sort()`, `insertion_sort()`, and `selection_sort()`
 
 `void swap(T & a, T & b) noexcept`
 
-**Description**: swaps the position of two elements 
+**Description**: Swaps the position of two elements. We want to do this efficiently, so be sure to use move semantics in order to avoid making unnecessary copies.
 
 **Time Complexity**: *O(1)*
 
@@ -93,8 +93,6 @@ There are two functions to complete in `Student.h`. You can complete them in the
 
 **First consult this guide: [`tests/README.md`](./tests/README.md)**
 
-To run the tests, you need to rename [`main.cpp`](./src/main.cpp) or you need to rename the `int main` function within that file.
-
 Execute the following commands from the `sorting-vectors` folder to accomplish what you need:
 
 **Build all of the tests**
@@ -123,24 +121,5 @@ cd ../..
 
 The first command builds the tests, the next enters the folder where the tests were build. The third invokes `gdb` (**use `lldb` if on Mac OSX**) which is used to debug the program by examining Segmentation Faults and running code line-by-line. Finally, the last command takes you back to the top-level directory.
 
-## Input File Contents
-To help test your code we are providing various input files. 
-- Files with the `ordered` prefix consist of numbers in sequence 1, 2, ... , n
-- Files with the `rand` prefix consist of non-duplicate random numbers in the range [1, n]
-- Files with the `randdup` prefix consist of random numbers in the range [1, n]. There are some duplicate values
-- Files with the `reverse` prefix consist of numbers in sequence n, n-1, ... , 1
-
-## Helper program to generate sorted data:
-
-To complete the report, you will need to benchmark the number of comparisons performed by each sorting algorithm.
-You can do this manually by compiling and executing `main` but we've written a script to automatically collect this
-data into a file.
-
-To run it, execute the following commands on MacOS or WSL:
-```
-[#] g++ -std=c++17 -o src/main src/main.cpp
-[#] bash generate_csv.bash > sorting_data.csv
-```
-
 ## Turn In
-Submit the modified `sorting.h` to Gradescope. In general, submit everything except `main.cpp`.
+Submit the modified `sorting.h` and `Student.h` to Gradescope. In general, submit everything except `main.cpp` (if it exists).
