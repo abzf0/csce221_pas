@@ -51,7 +51,7 @@ public:
 
     /**
      * Compares two students and returns
-     * - True if the first appears before the second in studentRanking.
+     * - True if the first appears before the second in _student_ranking.
      * - False otherwise (including when the a and b are the same).
      *
      * Should compare IDs.
