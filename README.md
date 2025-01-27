@@ -20,7 +20,9 @@ code .
 ### Implement Sorting Algorithms
 You are to implement `bubble_sort()`, `insertion_sort()`, and `selection_sort()` using iterators. 
 
-**HINT:** Implement `swap()` first. This is going to be used in all the sorting algorithms. Move operations are your friend.
+**HINT 1:** Implement `swap()` first. This is going to be used in all the sorting algorithms. Move operations are your friend.
+
+**HINT 2:** Be careful to use move semantics whenever possible to avoid making unnecessary copies. The biggest area where students forget to do this is when **storing array elements** in temporary variables (as is done in some implementations of insertion sort). If you are failing the `sorts_efficient` test due to extra allocations or a segmentation fault, this could be a reason why.
 
 #### You must implement the following functions:
 
