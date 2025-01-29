@@ -44,5 +44,26 @@ TEST(bubble_comparisons) {
                     << "\tHINT: Do not iterate over elements that are already sorted." << std::endl;
         }
         ASSERT_NEAR(memorize::bubble_comparisons[sz], comparisons, memorize::bubble_error(sz));
+
+        // Check if best case is O(n)
+        if (sz > 2) {
+            std::rotate(vec.begin(), vec.end() - 1, vec.end()); // Should result in only 2 passes in optimized bubble sort
+            
+            comparisons = 0;
+            sort::bubble(vec.begin(), vec.end(), [&comparisons](double & i, double & j) {
+                comparisons++;
+                return i > j;
+            });
+
+            if (comparisons < memorize::bubble_comparisons_best[sz] - memorize::bubble_best_error(sz)) {
+                std::cerr << "ERROR: Comparisons (" << comparisons << ") is fewer than expected.\n"
+                        << "\tDid you implement Bubble Sort?" << std::endl;
+            } else if (memorize::bubble_comparisons_best[sz] + memorize::bubble_best_error(sz) < comparisons) {
+                std::cerr << "ERROR: Comparisons (" << comparisons << ") is greater than expected.\n"
+                        << "\tYou should make your algorithm more efficient.\n"
+                        << "\tHINT: Your bubble sort must be optimized to be O(n) in the best case." << std::endl;
+            }
+            ASSERT_NEAR(memorize::bubble_comparisons_best[sz], comparisons, memorize::bubble_best_error(sz));
+        }
     }
 }
