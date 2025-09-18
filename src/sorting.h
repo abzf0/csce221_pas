@@ -19,7 +19,7 @@ namespace sort {
 
 	/* Efficiently swap two items - use this to implement your sorts */
 	template<typename T>
-	void swap(T & a, T & b) noexcept { /* TODO */ }
+	void swap(T & a, T & b) noexcept { T temp = a; a = b; b = temp; }
 
 	template<typename RandomIter, typename Comparator = less_for_iter<RandomIter>>
 	void bubble(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) {
