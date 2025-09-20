@@ -19,7 +19,11 @@ namespace sort {
 
 	/* Efficiently swap two items - use this to implement your sorts */
 	template<typename T>
-	void swap(T & a, T & b) noexcept { T temp = a; a = b; b = temp; }
+	void swap(T & a, T & b) noexcept { 
+		T temp = std::move(a); 
+		a = std::move(b); 
+		b = std::move(temp); 
+	}
 
 	template<typename RandomIter, typename Comparator = less_for_iter<RandomIter>>
 	void bubble(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) {
@@ -32,12 +36,68 @@ namespace sort {
 		using reference       = typename _it::reference;
 		using pointer         = typename _it::pointer;
 
-		// TODO
+
+		difference_type dif = end - begin;
+		if(dif<=1) return;
+
+		for(difference_type i = 0; i < dif - 1; i++) {
+			bool sorted = true;
+			for(difference_type j = 0; j < dif - 1 - i; j++) {
+				reference el1 = *(begin + j);
+				reference el2 = *(begin + j + 1);
+				
+				if(comp(el2, el1)) {
+					swap(el2, el1);
+					sorted = false;
+				}
+			} if(sorted) break;
+		}
+		
+
+		
 	}
 
 	template<typename RandomIter, typename Comparator = less_for_iter<RandomIter>>
-	void insertion(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) { /* TODO */ }
+	void insertion(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) { 
+		using _it             = std::iterator_traits<RandomIter>;
+		using difference_type = typename _it::difference_type;
+		using value_type      = typename _it::value_type;
+		using reference       = typename _it::reference;
+		using pointer         = typename _it::pointer;
+
+		difference_type dif = end - begin;
+		if(dif<=1) return;
+
+		for(RandomIter i = begin + 1; i < end; i++) {
+			value_type n = std::move(*i);
+
+			RandomIter j = i;
+			while(j > begin && comp(n,*(j-1))) {
+				 swap(*(j - 1), *j); j--;
+			}
+		}
+	 }
 
 	template<typename RandomIter, typename Comparator = less_for_iter<RandomIter>>
-	void selection(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) { /* TODO */ }
+	void selection(RandomIter begin, RandomIter end, Comparator comp = Comparator{}) { 
+		using _it             = std::iterator_traits<RandomIter>;
+		using difference_type = typename _it::difference_type;
+		using value_type      = typename _it::value_type;
+		using reference       = typename _it::reference;
+		using pointer         = typename _it::pointer;
+
+		difference_type dif = end - begin;
+		if(dif<=1) return;
+
+		for(difference_type i = 0; i < dif - 1; i++)
+			RandomIter minIndex = begin + i;
+			for(difference_type j = i + 1; j < dif; j++) {
+				if(comp(*(begin+j),*minIndex)) {
+					minIndex=begin+j;
+				}
+			} if(minIndex!=begin+j) {
+				swap(*(begin+i),*minIndex);
+			}
+
+	 }
 }
