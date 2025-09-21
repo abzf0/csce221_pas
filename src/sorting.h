@@ -69,10 +69,8 @@ namespace sort {
 		if(dif<=1) return;
 
 		for(RandomIter i = begin + 1; i < end; i++) {
-			value_type n = std::move(*i);
-
 			RandomIter j = i;
-			while(j > begin && comp(n,*(j-1))) {
+			while(j > begin && comp(*j,*(j-1))) {
 				 swap(*(j - 1), *j); j--;
 			}
 		}
@@ -89,15 +87,16 @@ namespace sort {
 		difference_type dif = end - begin;
 		if(dif<=1) return;
 
-		for(difference_type i = 0; i < dif - 1; i++)
+		for(difference_type i = 0; i < dif - 1; i++) {
 			RandomIter minIndex = begin + i;
 			for(difference_type j = i + 1; j < dif; j++) {
 				if(comp(*(begin+j),*minIndex)) {
 					minIndex=begin+j;
 				}
-			} if(minIndex!=begin+j) {
+			} if(minIndex!=begin+i) {
 				swap(*(begin+i),*minIndex);
 			}
+		}
 
 	 }
 }

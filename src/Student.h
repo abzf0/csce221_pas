@@ -67,9 +67,10 @@ public:
      * Should compare IDs.
      */
     [[nodiscard]] bool operator()(const Student& a, const Student& b) const {
+        if(a.getID()==b.getID()) {return false;}
         for (Student* student : _student_ranking) {
             if (student->getID() == a.getID()) { return true; }
-            if (student->getID() == b.getID()) { return false; }
-        }
-    }
+            else if (student->getID() == b.getID()) { return false; }
+        } return false;
+    } 
 };
